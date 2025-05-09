@@ -34,14 +34,37 @@ app.get("/listings", async (req, res) => {
         res.render("listings/index.ejs", {allListings});
 });
 
+//New Route
+
+app.get("/listings/new",  (req, res) => {
+
+    res.render("listings/new.ejs");
+});
+
 //Show Route
 
 app.get("/listings/:id", async (req, res) => {
 
     let {id} = req.params;
     const listing  = await Listing.findById(id);
+   // console.log("listing: ", listing);
     res.render("listings/show.ejs", {listing});
 });
+
+//Create Route
+
+app.post("/listings", async (req, res) => {
+
+    //let {title, description, image, price, location, country} = req.body;
+    
+    const newListing = new Listing(req.body.listing);
+    await newListing.save();
+    console.log(newListing);
+    res.redirect("/listings")
+});
+
+
+
 
 /*app.get("/testListing", async (req, res) => {
     
