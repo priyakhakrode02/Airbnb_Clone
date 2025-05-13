@@ -50,3 +50,8 @@
     justify-content: center;
     align-items: space-evenly;
 }
+
+/*Cards*/
+.card{
+    border: none !important;
+}
