@@ -71,7 +71,20 @@ body{
     font-weight: 400 !important;
 }
 
+/*redirect when you click on listing.*/
 
 .listing-link {
     text-decoration: none;
+}
+
+/* Card Effect*/
+
+.card-img-overlay{
+    opacity: 0;
+
+}
+
+.card-img-overlay:hover{
+    opacity: 0.3;
+    background-color: white;
 }
