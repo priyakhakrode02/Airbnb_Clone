@@ -94,3 +94,9 @@ body{
     opacity: 0.3;
     background-color: white;
 }
+
+/*Show Page*/
+
+.show-img{
+    height: 30vh;
+}
