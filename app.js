@@ -6,7 +6,7 @@ const path = require("path");
 const methodOverride = require('method-override');
 const ejsMate = require ('ejs-mate');
 
-
+//mongod --dbpath "C:\Program Files\MongoDB\Server\8.0\data" --logpath "C:\Program Files\MongoDB\Server\8.0\bin\mongod.log" --install --serviceName "MongoDB"
 
 main()
 .then((res) => {
