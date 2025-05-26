@@ -67,6 +67,7 @@ body{
     border-radius: 1rem !important;
     width: 100% !important;
     object-fit: cover !important;
+    box-shadow : 1px 1px 7px black ;
 }
 
 .card-body{
