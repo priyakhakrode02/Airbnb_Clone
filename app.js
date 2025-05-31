@@ -8,6 +8,7 @@ const ejsMate = require ('ejs-mate');
 const wrapAsync = require('./utils/wrapAsync.js');
 const ExpressError = require('./utils/ExpressError.js');
 const {listingSchema} = require("./schema.js");
+const Review = require('./models/review.js');
 
 
 //mongod --dbpath "C:\Program Files\MongoDB\Server\8.0\data" --logpath "C:\Program Files\MongoDB\Server\8.0\bin\mongod.log" --install --serviceName "MongoDB"
@@ -106,6 +107,20 @@ app.delete("/listings/:id", wrapAsync (async (req, res) => {
     const deletedListing = await Listing.findByIdAndDelete(id);
     res.redirect("/listings")
 }));
+
+//Review (post route)
+app.post("/listings/:id/reviews", async (req, res) => {
+        let listing = await Listing.findById(req.params.id);
+        let newReview = new Review(req.body.review);
+
+        listing.reviews.push(newReview);
+        
+        await newReview.save();
+        await listing.save();
+
+        console.log("new review: ", newReview);
+        res.redirect(`/listings/${listing._id}`);
+});
 
 
 /*app.get("/testListing", async (req, res) => {
