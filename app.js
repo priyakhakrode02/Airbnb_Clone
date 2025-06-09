@@ -73,6 +73,7 @@ app.get("/listings/new",  (req, res) => {
 
 //Show Route
 
+
 app.get("/listings/:id", wrapAsync (async (req, res) => {
 
     let {id} = req.params;
